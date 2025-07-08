@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="container">
+    <h1 [ngStyle]="{'color':'blue','text-align':'center'}">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submitData()">
+        <div class="field">
+            <label for="username">Username:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input type="text" id="username" name="username" formControlName="username" placeholder="enter username...">
+        </div>
+        <div class="error" *ngIf="errorFormControl('username')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Username is required.</p>
+        </div>
+        <div class="field">
+            <label for="password">Password:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input type="password" class="eye" id="password" name="password" formControlName="password" placeholder="enter password...">
+            <a class="eye-link" (click)="togglePassword()" *ngIf="!isEyeActive"><i class="fa-solid fa-eye"></i></a>
+            <a class="eye-link" (click)="togglePassword()" *ngIf="isEyeActive"><i class="fa-solid fa-eye-slash"></i></a>
+        </div>
+        <div class="error" *ngIf="errorFormControl('password')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Password is required.</p>
+        </div>
+        <button [disabled]="loginForm.invalid">Login</button>
+    </form>
+</div>

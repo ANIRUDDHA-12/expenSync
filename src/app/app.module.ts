@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmployeeAuthModule } from './employee-auth/employee-auth.module';
+import { SharedModule } from './shared/shared.module';
+import { ExpenseModule } from './expense/expense.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EmployeeAuthModule,
+    SharedModule,
+    ExpenseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

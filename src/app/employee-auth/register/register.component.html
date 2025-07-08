@@ -1,1 +1,71 @@
-<p>register works!</p>
+<div class="container">
+    <h1 [ngStyle]="{'color':'blue','text-align':'center'}">Register</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="submitData()">
+        <div class="field">
+            <label for="email">Email:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input type="email" id="email" name="email" formControlName="email" placeholder="enter email...">
+        </div>
+        <div class="error" *ngIf="errorFormControl('email')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Email is required.</p>
+        </div>
+        <div class="field">
+            <label for="fullName">Name:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input type="text" id="fullName" name="fullName" formControlName="fullName" placeholder="enter name...">
+        </div>
+        <div class="error" *ngIf="errorFormControl('fullName')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Full name is required.</p>
+        </div>
+        <div class="field">
+            <label for="username">Username:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input type="text" id="username" name="username" formControlName="username" placeholder="enter username...">
+        </div>
+        <div class="error" *ngIf="errorFormControl('username')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Username is required.</p>
+        </div>
+        <div class="field">
+            <label for="password">Password:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input type="password" class="eye" id="password" name="password" formControlName="password" placeholder="enter password...">
+            <a class="eye-link" (click)="togglePassword()" *ngIf="!isEyeActive"><i class="fa-solid fa-eye"></i></a>
+            <a class="eye-link" (click)="togglePassword()" *ngIf="isEyeActive"><i class="fa-solid fa-eye-slash"></i></a>
+        </div>
+        <div class="error" *ngIf="errorFormControl('password')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Password is required.</p>
+        </div>
+        <div class="field">
+            <label for="c-password">Confirm Password:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input type="password" class="eye2" id="c-password" name="c-password" formControlName="confirmPassword" placeholder="enter password again...">
+            <a class="eye-link2" (click)="toggleConfirmPassword()" *ngIf="!isEyeActive2"><i class="fa-solid fa-eye"></i></a>
+            <a class="eye-link2" (click)="toggleConfirmPassword()" *ngIf="isEyeActive2"><i class="fa-solid fa-eye-slash"></i></a>
+        </div>
+        <div class="error" *ngIf="errorFormControl('confirmPassword')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> This is required.</p>
+        </div>
+        <div class="error" *ngIf="confirmPassword()">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Invalid Password</p>
+        </div>
+        <div class="field">
+            <label for="designation"></label>
+            <select name="designation" id="designation" formControlName="designation">
+                <option value="">Select Designation</option>
+                <option value="employee">Employee</option>
+                <option value="manager">Manager</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="profile-image">Profile Image:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input [ngStyle]="{'border':'none','height':'15px'}" type="file" id="profile-image" name="profile-image" formControlName="profileImg">
+            
+        </div>
+        <div class="error" *ngIf="errorFormControl('profileImg')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Profile Image is required.</p>
+        </div>
+        <div class="field">
+            <label for="dob">Date of birth:<span [ngStyle]="{'color':'red'}" >*</span> </label>
+            <input type="date" id="dob" name="dob" formControlName="dob">
+        </div>
+        <div class="error" *ngIf="errorFormControl('dob')">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Date of birth is required.</p>
+        </div>
+        <button [disabled]="registerForm.invalid">Register</button>
+    </form>
+</div>
