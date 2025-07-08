@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { EmployeeAuthModule } from './employee-auth/employee-auth.module';
 import { SharedModule } from './shared/shared.module';
 import { ExpenseModule } from './expense/expense.module';
+import { NewEntryComponent } from './expense/new-entry/new-entry.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewEntryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     EmployeeAuthModule,
     SharedModule,
-    ExpenseModule
+    ExpenseModule,
+    ReactiveFormsModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
