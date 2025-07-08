@@ -1,0 +1,83 @@
+
+.main {
+  display: flex; 
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #1274d5; 
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px;
+}
+
+.list button {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: white;
+  color: #1976d2;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.list button:hover {
+  background-color: #92c8ef;
+}
+
+.content {
+  padding: 40px;
+  flex-grow: 1;
+}
+
+.content h3 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.content h5{
+    font-size: 25px;
+    font-style:italic;
+}
+
+
+.new:hover {
+  background-color: #1258a6;
+}
+
+.expense-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.expense-table th,
+.expense-table td {
+  border: 1px solid #1976d2;
+  padding: 12px;
+  text-align: center;
+}
+
+.expense-table th {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
