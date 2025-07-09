@@ -1,0 +1,31 @@
+<div class="main">
+  <!-- sidebar starts-->
+  <div class="sidebar">
+    <button class="menu-btn">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="list">
+      <button>Dashboard</button>
+      <button>Submit expense</button>
+      <button>History</button>
+    </div>
+  </div>
+  <!-- sidebar ends -->
+  <!-- Right Area starts -->
+  <div class="content">
+    <h3>WELCOME!</h3> 
+    <button class="new" [routerLink]="['/new-entry']">+ NEW EXPENSE</button>
+    <table class="expense-table">
+        <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    <!-- right area ends -->
+    </table>
+
+  </div>
+
+
+</div>

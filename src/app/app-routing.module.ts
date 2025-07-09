@@ -2,15 +2,36 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './employee-auth/register/register.component';
 import { LoginComponent } from './employee-auth/login/login.component';
+import { NewEntryComponent } from './expense/new-entry/new-entry.component';
+import { HistoryComponent } from './expense/history/history.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { EmployeeComponent } from './dashboard/employee/employee.component';
+import { ManagerComponent } from './dashboard/manager/manager.component';
 
 const routes: Routes = [
+  {
+    path:"login",
+    component:LoginComponent
+  },
   {
     path:"register",
     component:RegisterComponent
   },
   {
-    path:"login",
-    component:LoginComponent
+    path:"new-entry",
+    component:NewEntryComponent
+  },
+  {
+    path:"history",
+    component:HistoryComponent
+  },
+  {
+    path:"manager",
+    component:ManagerComponent
+  },
+  {
+    path:"employee",
+    component:EmployeeComponent
   }
 ];
 
