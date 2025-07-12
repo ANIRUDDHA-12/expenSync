@@ -4,12 +4,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { ManagerComponent } from './manager/manager.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
-    EmployeeComponent,
-    ManagerComponent,
     EmployeeComponent,
     ManagerComponent
   ],

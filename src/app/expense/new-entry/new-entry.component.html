@@ -23,6 +23,6 @@
       <textarea formControlName="description"></textarea>
     </div>
 
-    <button type="submit" class="submit-button">Submit expense</button>
+    <button type="submit" class="submit-button" [disabled]="expenseForm.invalid">Submit expense</button>
     </form>
 </div>
