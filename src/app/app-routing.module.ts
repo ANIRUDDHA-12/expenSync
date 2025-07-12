@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NewEntryComponent } from './expense/new-entry/new-entry.component';
 import { EmployeeComponent } from './dashboard/employee/employee.component';
 import { ManagerComponent } from './dashboard/manager/manager.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'manager',
     component: ManagerComponent
+  },
+  {
+    path:'',
+    component:HomeComponent
   }
 ];
 

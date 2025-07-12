@@ -19,7 +19,7 @@ export class NewEntryComponent {
       if(this.expenseForm.valid){
         console.log("Expense submitted",this.expenseForm.value)
         alert("Expense Submitted")
-        // this.expenseForm.reset()
+        this.expenseForm.reset()
       }
       else{
         alert("please fill all the fields correctly")
