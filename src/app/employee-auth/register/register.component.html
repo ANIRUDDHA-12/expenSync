@@ -22,6 +22,9 @@
         <div class="error" *ngIf="errorFormControl('username')">
             <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Username is required.</p>
         </div>
+        <div class="error" *ngIf="usernameError">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Username already exists.</p>
+        </div>
         <div class="field">
             <label for="password">Password:<span [ngStyle]="{'color':'red'}" >*</span> </label>
             <input type="password" class="eye" id="password" name="password" formControlName="password" placeholder="enter password...">

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DatabaseService } from 'src/app/database.service';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,11 @@ export class RegisterComponent {
 
   isEyeActive = false;
   isEyeActive2 = false;
+  usernameError:boolean = false;
+  
+
+
+  constructor(private database : DatabaseService){}
 
   registerForm = new FormGroup({
     email : new FormControl('',[Validators.required,Validators.email]),
@@ -21,6 +27,11 @@ export class RegisterComponent {
     profileImg : new FormControl('',[Validators.required]),
     dob : new FormControl('',[Validators.required])
   })
+
+  ngOnInit(){
+    this.subscribeToUserNameChanges()
+  }
+  
 
   getFormControl(name:any){
     return this.registerForm.get(name);
@@ -36,6 +47,11 @@ export class RegisterComponent {
 
   submitData(){
     console.log(this.registerForm.value);
+    if(this.getFormControl('designation')?.value === "Employee"){
+      this.database.insertEmployee(this.registerForm.value);
+    }else{
+      this.database.insertManager(this.registerForm.value);
+    }
     this.registerForm.reset();
   }
 
@@ -57,6 +73,21 @@ export class RegisterComponent {
       document.querySelector('.eye2')?.setAttribute('type',"text")
       this.isEyeActive2 = true;
     }
+  }
+
+  subscribeToUserNameChanges(){
+    this.registerForm.get('username')?.valueChanges.subscribe((value:any)=>{
+      let users = this.database.Manager;
+      // users = {...this.database.Employee}
+      for(let user of users){
+        if(value && user.username.trim() === value.trim()){
+          this.usernameError = true;
+          break;
+        }else{
+          this.usernameError = false;
+        }
+      }
+    })
   }
 }
 
