@@ -28,16 +28,12 @@ export class RegisterComponent {
     dob: new FormControl('', [Validators.required])
   });
 
-<<<<<<< HEAD
   ngOnInit(){
     this.subscribeToUserNameChanges()
   }
   
 
   getFormControl(name:any){
-=======
-  getFormControl(name: string) {
->>>>>>> 036284cf4e885e362e8c5844ef5576cf1196de2c
     return this.registerForm.get(name);
   }
 

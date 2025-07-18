@@ -5,19 +5,29 @@ import { Injectable } from '@angular/core';
 })
 export class DatabaseService {
 
-  constructor() { }
+  constructor() {
+    this.loadData();
+   }
 
   Employee:any[] = [];
   Manager:any[] = [];
   Expense:any[] = [];
   expenseCount = 1;
 
+  loadData(){
+    this.Employee = JSON.parse(localStorage.getItem("Employee") ?? "[]");
+    this.Manager = JSON.parse(localStorage.getItem("Manager") ?? "[]");
+    this.Expense = JSON.parse(localStorage.getItem("Expense") ?? "[]");
+  }
+
   insertEmployee(data:any){
     this.Employee.push(data);
+    localStorage.setItem("Employee",JSON.stringify(this.Employee));
   }
 
   insertManager(data:any){
     this.Manager.push(data);
+    localStorage.setItem("Manager",JSON.stringify(this.Manager));
   }
 
   insertExpense(data:any){
@@ -27,6 +37,7 @@ export class DatabaseService {
     };
     this.Expense.push(newExp);
     this.expenseCount++;
+    localStorage.setItem("Expense",JSON.stringify(this.Expense));
   }
 
 
