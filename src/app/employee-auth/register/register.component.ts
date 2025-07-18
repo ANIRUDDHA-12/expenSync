@@ -18,34 +18,43 @@ export class RegisterComponent {
   constructor(private database : DatabaseService){}
 
   registerForm = new FormGroup({
-    email : new FormControl('',[Validators.required,Validators.email]),
-    fullName : new FormControl('',[Validators.required]),
-    username : new FormControl('',[Validators.required]),
-    password : new FormControl('',[Validators.required]),
-    confirmPassword : new FormControl('',[Validators.required]),
-    designation : new FormControl('',[Validators.required]),
-    profileImg : new FormControl('',[Validators.required]),
-    dob : new FormControl('',[Validators.required])
-  })
+    email: new FormControl('', [Validators.required, Validators.email]),
+    fullName: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+    confirmPassword: new FormControl('', [Validators.required]),
+    designation: new FormControl('', [Validators.required]),
+    profileImg: new FormControl('', [Validators.required]),
+    dob: new FormControl('', [Validators.required])
+  });
 
+<<<<<<< HEAD
   ngOnInit(){
     this.subscribeToUserNameChanges()
   }
   
 
   getFormControl(name:any){
+=======
+  getFormControl(name: string) {
+>>>>>>> 036284cf4e885e362e8c5844ef5576cf1196de2c
     return this.registerForm.get(name);
   }
 
-  errorFormControl(name:any){
-    return this.getFormControl(name)?.dirty && this.getFormControl(name)?.invalid;
+  errorFormControl(name: string) {
+    const control = this.getFormControl(name);
+    return control?.dirty && control?.invalid;
   }
 
-  confirmPassword(){
-    return this.getFormControl('password')?.dirty && this.getFormControl('confirmPassword')?.dirty && this.getFormControl('password')?.value != this.getFormControl('confirmPassword')?.value;
+  confirmPassword() {
+    const password = this.getFormControl('password')?.value;
+    const confirmPassword = this.getFormControl('confirmPassword')?.value;
+    return this.getFormControl('password')?.dirty &&
+           this.getFormControl('confirmPassword')?.dirty &&
+           password !== confirmPassword;
   }
 
-  submitData(){
+  submitData() {
     console.log(this.registerForm.value);
     if(this.getFormControl('designation')?.value === "Employee"){
       this.database.insertEmployee(this.registerForm.value);
@@ -55,23 +64,19 @@ export class RegisterComponent {
     this.registerForm.reset();
   }
 
-  togglePassword(){
-    if(this.isEyeActive){
-      document.querySelector('.eye')?.setAttribute('type',"password")
-      this.isEyeActive = false;
-    }else{
-      document.querySelector('.eye')?.setAttribute('type',"text")
-      this.isEyeActive = true;
+  togglePassword() {
+    const passwordInput = document.querySelector('.eye') as HTMLInputElement;
+    if (passwordInput) {
+      this.isEyeActive = !this.isEyeActive;
+      passwordInput.type = this.isEyeActive ? 'text' : 'password';
     }
   }
 
-  toggleConfirmPassword(){
-    if(this.isEyeActive2){
-      document.querySelector('.eye2')?.setAttribute('type',"password")
-      this.isEyeActive2 = false;
-    }else{
-      document.querySelector('.eye2')?.setAttribute('type',"text")
-      this.isEyeActive2 = true;
+  toggleConfirmPassword() {
+    const confirmPasswordInput = document.querySelector('.eye2') as HTMLInputElement;
+    if (confirmPasswordInput) {
+      this.isEyeActive2 = !this.isEyeActive2;
+      confirmPasswordInput.type = this.isEyeActive2 ? 'text' : 'password';
     }
   }
 
@@ -90,4 +95,3 @@ export class RegisterComponent {
     })
   }
 }
-

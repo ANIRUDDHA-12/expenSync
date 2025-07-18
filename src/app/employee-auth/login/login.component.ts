@@ -11,34 +11,29 @@ export class LoginComponent {
   isEyeActive = false;
 
   loginForm = new FormGroup({
-    username : new FormControl('',[Validators.required]),
-    password : new FormControl('',[Validators.required])
-  })
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
+  });
 
-
-
-  getFormControl(name:any){
+  getFormControl(name: string) {
     return this.loginForm.get(name);
   }
 
-  errorFormControl(name:any){
-    return this.getFormControl(name)?.dirty && this.getFormControl(name)?.invalid;
+  errorFormControl(name: string) {
+    const control = this.getFormControl(name);
+    return control?.dirty && control?.invalid;
   }
 
-  
-
-  submitData(){
+  submitData() {
     console.log(this.loginForm.value);
     this.loginForm.reset();
   }
 
-  togglePassword(){
-    if(this.isEyeActive){
-      document.querySelector('.eye')?.setAttribute('type',"password")
-      this.isEyeActive = false;
-    }else{
-      document.querySelector('.eye')?.setAttribute('type',"text")
-      this.isEyeActive = true;
+  togglePassword() {
+    const passwordInput = document.querySelector('.eye') as HTMLInputElement;
+    if (passwordInput) {
+      this.isEyeActive = !this.isEyeActive;
+      passwordInput.type = this.isEyeActive ? 'text' : 'password';
     }
   }
 }

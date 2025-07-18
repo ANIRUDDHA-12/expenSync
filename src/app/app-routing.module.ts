@@ -4,34 +4,38 @@ import { RegisterComponent } from './employee-auth/register/register.component';
 import { LoginComponent } from './employee-auth/login/login.component';
 import { NewEntryComponent } from './expense/new-entry/new-entry.component';
 import { HistoryComponent } from './expense/history/history.component';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { EmployeeComponent } from './dashboard/employee/employee.component';
 import { ManagerComponent } from './dashboard/manager/manager.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path:"login",
-    component:LoginComponent
+    path: '',
+    component: HomeComponent
   },
   {
-    path:"register",
-    component:RegisterComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path:"new-entry",
-    component:NewEntryComponent
+    path: 'register',
+    component: RegisterComponent
   },
   {
-    path:"history",
-    component:HistoryComponent
+    path: 'new-entry',
+    component: NewEntryComponent
   },
   {
-    path:"manager",
-    component:ManagerComponent
+    path: 'history',
+    component: HistoryComponent
   },
   {
-    path:"employee",
-    component:EmployeeComponent
+    path: 'manager',
+    component: ManagerComponent
+  },
+  {
+    path: 'employee',
+    component: EmployeeComponent
   }
 ];
 

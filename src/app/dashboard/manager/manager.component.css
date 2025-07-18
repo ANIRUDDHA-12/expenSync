@@ -1,64 +1,92 @@
-
 .main {
-  display: flex; 
+  display: flex;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: #1274d5; 
+  background-color: #1274d5;
   transition: width 0.3s ease;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .menu-btn {
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 22px;
   margin: 15px;
   cursor: pointer;
+  align-self: flex-start;
 }
 
 .list {
   display: flex;
   flex-direction: column;
   margin: 20px 10px;
+  width: 100%;
 }
 
 .list button {
-  margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 20px;
+  margin-bottom: 15px;
+  padding: 12px 20px;
+  border-radius: 25px;
   border: none;
-  background-color: white;
+  background-color: #ffffff;
   color: #1976d2;
-  cursor: pointer;
   font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  width: 90%;
+  text-align: left;
 }
 
 .list button:hover {
-  background-color: #92c8ef;
+  background-color: #cde6fa;
+  transform: translateX(5px);
 }
 
 .content {
   padding: 40px;
   flex-grow: 1;
+  background-color: #f9f9f9;
 }
 
 .content h3 {
   font-size: 36px;
   margin-bottom: 20px;
   font-style: italic;
-}
-.content h5{
-    font-size: 25px;
-    font-style:italic;
+  color: #333;
 }
 
+.content h5 {
+  font-size: 25px;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.new {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
 
 .new:hover {
   background-color: #1258a6;
@@ -66,18 +94,33 @@
 
 .expense-table {
   width: 80%;
+  max-width: 1000px;
   border-collapse: collapse;
   margin-top: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .expense-table th,
 .expense-table td {
-  border: 1px solid #1976d2;
-  padding: 12px;
+  border: 1px solid #c3d7ea;
+  padding: 12px 16px;
   text-align: center;
+  font-size: 14px;
 }
 
 .expense-table th {
   background-color: #e3f2fd;
   color: #1976d2;
+  font-weight: bold;
+}
+
+.expense-table tr:nth-child(even) td {
+  background-color: #f4f9ff;
+}
+
+.expense-table tr:hover td {
+  background-color: #e6f2ff;
 }
