@@ -18,9 +18,15 @@
     <table class="expense-table">
         <tr>
             <th>Title</th>
-            <th>View</th>
+            <th>Amount</th>
             <th>Date</th>
             <th>Accept/Reject</th>
+        </tr>
+        <tr *ngFor="let request of requests">
+          <td>{{request.title}}</td>
+          <td>{{request.amount}}</td>
+          <td>{{request.date}}</td>
+          <td><button>Accept</button><button>Reject</button></td>
         </tr>
     <!-- right area ends -->
     </table>

@@ -12,11 +12,14 @@ export class NewEntryComponent {
 
   constructor(private database : DatabaseService){}
 
+
+
     expenseForm=new FormGroup({
       title:new FormControl('',[Validators.required]),
       amount:new FormControl('',[Validators.required]),
       date:new FormControl('',[Validators.required]),
-      description:new FormControl('',[Validators.required])
+      description:new FormControl('',[Validators.required]),
+      author : new FormControl(this.database.loggedInUser)
     })
 
     onSubmit(){

@@ -52,7 +52,7 @@ export class RegisterComponent {
 
   submitData() {
     console.log(this.registerForm.value);
-    if(this.getFormControl('designation')?.value === "Employee"){
+    if(this.getFormControl('designation')?.value == "employee"){
       this.database.insertEmployee(this.registerForm.value);
     }else{
       this.database.insertManager(this.registerForm.value);
@@ -80,6 +80,7 @@ export class RegisterComponent {
     this.registerForm.get('username')?.valueChanges.subscribe((value:any)=>{
       let users = this.database.Manager;
       // users = {...this.database.Employee}
+      users.push(...this.database.Employee)
       for(let user of users){
         if(value && user.username.trim() === value.trim()){
           this.usernameError = true;

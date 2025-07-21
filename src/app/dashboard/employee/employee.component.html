@@ -22,6 +22,12 @@
             <th>Date</th>
             <th>Status</th>
         </tr>
+        <tr *ngFor="let request of requests">
+          <td>{{request.title}}</td>
+          <td>{{request.amount}}</td>
+          <td>{{request.date}}</td>
+          <td>{{request.status}}</td>
+        </tr>
     <!-- right area ends -->
     </table>
 

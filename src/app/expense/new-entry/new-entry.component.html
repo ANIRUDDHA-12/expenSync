@@ -22,6 +22,10 @@
       <label>Description:</label>
       <textarea formControlName="description"></textarea>
     </div>
+    <div class="form-group">
+        <label>Author:</label>
+        <input type="text" formControlName="author" />
+      </div>
 
     <button type="submit" class="submit-button" [disabled]="expenseForm.invalid">Submit expense</button>
     </form>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatabaseService } from 'src/app/database.service';
 
 @Component({
   selector: 'app-manager',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ManagerComponent {
 
+  constructor(private database:DatabaseService){}
+
+  requests = this.database.Expense
 }
