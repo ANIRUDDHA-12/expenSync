@@ -17,6 +17,9 @@
         <div class="error" *ngIf="errorFormControl('password')">
             <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i> Password is required.</p>
         </div>
+        <div class="error" *ngIf="isInvalidCredentials">
+            <p><i class="fa-sharp-duotone fa-solid fa-circle-exclamation"></i>Username or Password is Wrong</p>
+        </div>
         <button [disabled]="loginForm.invalid">Login</button>
     </form>
 </div>

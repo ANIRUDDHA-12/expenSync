@@ -10,6 +10,24 @@ export class HomeComponent {
 
   constructor(private database : DatabaseService){}
 
-  isLoggedIn = this.database.isLoggedIn
+  loggedInUser = this.database.loggedInUser
+  isLoggedIn:boolean = JSON.parse(localStorage.getItem("isLoggedIn")?? "false")
+  isEmployee = false
+  
+  ngOnInit(){
+    let employee = this.database.Employee.find((elem)=>elem.username==this.loggedInUser)
+
+    if(employee){
+      this.isEmployee = true
+    }else{
+      this.isEmployee = false
+    }
+  }
+
+  updateLogOut(){
+    this.database.isLoggedIn = false
+    localStorage.setItem("isLoggedIn",JSON.stringify(this.database.isLoggedIn))
+    window.location.reload()
+  }
 
 }

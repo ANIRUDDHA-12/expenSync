@@ -55,7 +55,7 @@ export class LoginComponent {
       if(user.username === username && user.password === password){
         this.database.updateLoggedIn(true);
         this.database.updateLoggedUser(username);
-        // this.router.navigate(['']);
+        this.router.navigate(['']);
       }else{
         this.isInvalidCredentials = true;
       }

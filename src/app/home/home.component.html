@@ -2,8 +2,8 @@
   <nav class="navbar">
     <div class="logo">ExpenSync</div>
     <div class="nav-buttons">
-      <button [routerLink]="['/login']" *ngIf="isLoggedIn">Login</button>
-      <button *ngIf="!isLoggedIn">Logout</button>
+      <button [routerLink]="['/login']" *ngIf="!isLoggedIn">Login</button>
+      <button *ngIf="isLoggedIn" (click)="updateLogOut()">Logout</button>
     </div>
   </nav>
 
@@ -31,7 +31,13 @@
       <p>Get real-time insights into company spending.</p>
     </div>
   </section>
-
+  <div class="btns-div">
+    <button *ngIf="isEmployee" [routerLink]="['/employee']">Dashboard</button>
+    <button *ngIf="!isEmployee" [routerLink]="['/manager']">Pending Requests</button>
+    <button [routerLink]="['/history']">History</button>
+  </div>
   <footer class="footer">
+    <p>Made With Love! ❤️</p>
+    <p>~Gaurav,Tisha and Annirudha</p>
   </footer>
 </div>
