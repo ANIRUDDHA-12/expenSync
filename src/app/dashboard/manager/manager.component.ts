@@ -10,5 +10,19 @@ export class ManagerComponent {
 
   constructor(private database:DatabaseService){}
 
-  requests = this.database.Expense
+  requests = this.database.Expense.filter((elem)=>elem.status=="pending")
+
+  setStatusToAccept(id:any){
+    let expenseIndex = this.database.Expense.findIndex((elem)=>elem.id==id)
+    this.database.Expense[expenseIndex].status = "accepted"
+    localStorage.setItem("Expense",JSON.stringify(this.database.Expense))
+    window.location.reload()
+  }
+
+  setStatusToReject(id:any){
+    let expenseIndex = this.database.Expense.findIndex((elem)=>elem.id==id)
+    this.database.Expense[expenseIndex].status = "rejected"
+    localStorage.setItem("Expense",JSON.stringify(this.database.Expense))
+    window.location.reload()
+  }
 }

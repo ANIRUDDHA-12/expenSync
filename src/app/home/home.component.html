@@ -2,8 +2,8 @@
   <nav class="navbar">
     <div class="logo">ExpenSync</div>
     <div class="nav-buttons">
-      <button [routerLink]="['/login']">Login</button>
-      <!-- <button [routerLink]="['/login']">Manager Login</button> -->
+      <button [routerLink]="['/login']" *ngIf="isLoggedIn">Login</button>
+      <button *ngIf="!isLoggedIn">Logout</button>
     </div>
   </nav>
 

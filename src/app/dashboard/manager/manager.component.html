@@ -26,7 +26,7 @@
           <td>{{request.title}}</td>
           <td>{{request.amount}}</td>
           <td>{{request.date}}</td>
-          <td><button>Accept</button><button>Reject</button></td>
+          <td><button class="accept-btn" (click)="setStatusToAccept(request.id)">Accept</button><button (click)="setStatusToReject(request.id)" class="reject-btn">Reject</button></td>
         </tr>
     <!-- right area ends -->
     </table>

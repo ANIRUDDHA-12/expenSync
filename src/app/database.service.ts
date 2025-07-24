@@ -30,8 +30,9 @@ export class DatabaseService {
     this.Employee = JSON.parse(localStorage.getItem("Employee") ?? "[]");
     this.Manager = JSON.parse(localStorage.getItem("Manager") ?? "[]");
     this.Expense = JSON.parse(localStorage.getItem("Expense") ?? "[]");
-    this.isLoggedIn = localStorage.getItem("isLogggedIn");
-    this.loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")?? '');
+    this.isLoggedIn = JSON.parse(localStorage.getItem("isLogggedIn") ?? 'false');
+    this.loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")?? 'null');
+    this.expenseCount = JSON.parse(localStorage.getItem("ExpenseCount")?? "0");
   }
 
   insertEmployee(data:any){
@@ -51,8 +52,11 @@ export class DatabaseService {
       ...data
     };
     this.Expense.push(newExp);
+    console.log(newExp,this.expenseCount)
     this.expenseCount++;
     localStorage.setItem("Expense",JSON.stringify(this.Expense));
+    localStorage.setItem("ExpenseCount",JSON.stringify(this.expenseCount));
+    
   }
 
 

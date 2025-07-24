@@ -34,7 +34,7 @@
   width: 100%;
 }
 
-.list button {
+.list button{
   margin-bottom: 15px;
   padding: 12px 20px;
   border-radius: 25px;
@@ -48,6 +48,25 @@
   transition: all 0.3s ease;
   width: 90%;
   text-align: left;
+}
+
+.accept-btn, .reject-btn{
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.accept-btn{
+  background-color: #1976d2;
+  border: 2px solid #1976d2;
+}
+
+.reject-btn{
+  background-color: rgb(248, 58, 58);
+  border: 2px solid rgb(248, 58, 58);
 }
 
 .list button:hover {
